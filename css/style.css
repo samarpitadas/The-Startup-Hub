@@ -1,0 +1,156 @@
+body{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.add-startup, .login{
+    margin: 3vw 3vw 3vw 0vw;
+    background: linear-gradient(to right, #7f40ed, #f2405a);
+    color: #fff; 
+    padding: 2vh;
+    border-radius: 20px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.add-startup:hover, .login:hover{
+    padding: 2.5vh;
+}
+h1,h2{
+    text-align: center;
+}
+.company-name{
+    background: linear-gradient(to right,#7f40ed, #f2405a);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;
+    font-weight: bolder; 
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    border-right: 2px solid black; /* Cursor effect */
+    padding-right: 5px;
+    animation: blink 0.75s step-end infinite;
+}
+@keyframes blink {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filer-section {
+    border: 1px solid #ccc; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 80%;
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+label {
+    font-weight: 700;
+    margin: 8px 4px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0px 12px 0px;
+    background-color: transparent;
+    border: 3px solid #b7b3b3;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: 0.1s;
+}
+select:hover{
+    border: 3px solid #9c4ea4;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #7731f0, #ef1637);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+button:hover{
+    padding: 15px;
+}
+.status{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+}
+.startup-container{
+    width: 80%;
+    margin: 20px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.startup-card{
+    background-color: white;
+    color: black;
+    padding: 2.5vw;
+    border-radius: 20px;
+    margin-bottom: 5vw;
+}
+.heading{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    background-image: url("../rupeek.png");
+    width: 7vh;
+    height: 7vh;
+    background-size: cover;
+}
+.startup-card .name{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 3vw;
+    background-color: white;
+    color: #000000;
+}
+.startup-card p{
+    font-size: 1.1rem;
+}
+.startup-card span {
+    background-color: lightblue;
+    border-radius: 10px; 
+    padding: 4px 8px; 
+    margin: 4px; 
+    display: inline-block;
+    color: blue;
+    font-size: large;
+    font-weight: bolder;
+}
+.link{
+    border: 2px solid;
+    padding: 10px;
+    text-align: center;
+    margin-top: 2vh;
+}
+.startup-card a{
+    text-decoration: none;
+    color: rgb(78, 75, 75);
+    font-size: large;
+    
+}
