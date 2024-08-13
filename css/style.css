@@ -8,6 +8,10 @@ body{
     align-items: center;
     justify-content: right;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .add-startup, .login{
     margin: 3vw 3vw 3vw 0vw;
     background: linear-gradient(to right, #7f40ed, #f2405a);
@@ -23,6 +27,11 @@ body{
 h1,h2{
     text-align: center;
 }
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .company-name{
     background: linear-gradient(to right,#7f40ed, #f2405a);
     -webkit-background-clip: text; 
@@ -35,6 +44,7 @@ h1,h2{
     border-right: 2px solid black; /* Cursor effect */
     padding-right: 5px;
     animation: blink 0.75s step-end infinite;
+    font-size: 30px;
 }
 @keyframes blink {
     from, to {
