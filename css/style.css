@@ -41,7 +41,7 @@ h1,h2{
     display: inline-block;
     font-family: 'Courier New', Courier, monospace;
     white-space: nowrap;
-    border-right: 2px solid black; /* Cursor effect */
+    border-right: 2px solid black; 
     padding-right: 5px;
     animation: blink 0.75s step-end infinite;
     font-size: 30px;
@@ -121,6 +121,13 @@ button:hover{
     padding: 2.5vw;
     border-radius: 20px;
     margin-bottom: 5vw;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.startup-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 .heading{
     display: flex;
