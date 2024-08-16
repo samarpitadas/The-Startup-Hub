@@ -51,7 +51,7 @@ select:hover,input:hover,textarea:hover{
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(to right, #7731f0, #ef1637);
+    background: linear-gradient(to right, #6433b7, #ef1637);
     color: white;
     font-size: 20px;
     cursor: pointer;
