@@ -49,15 +49,17 @@ select:hover,input:hover,textarea:hover{
 }
 .form-group button {
     padding: 10px;
+    margin: 5px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(to right, #6433b7, #ef1637);
+    background: linear-gradient(to right, #7731f0, #ef1637);
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .form-group button:hover {
     padding: 15px;
+    margin:0px;
 }
