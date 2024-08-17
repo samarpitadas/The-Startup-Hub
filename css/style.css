@@ -17,10 +17,10 @@ a {
 
 .add-startup,
 .login {
-    margin: 3vh 3vh 3vh 0vh;
+    margin: 2vh 1vh;
+    padding: 2vh;
     background: linear-gradient(to right, #7f40ed, #f2405a);
     color: #fff;
-    padding: 2vh;
     border-radius: 20px;
     cursor: pointer;
     transition-duration: 0.5s;
@@ -29,8 +29,8 @@ a {
 
 .add-startup:hover,
 .login:hover {
-    padding: 2.5vh 2.5vh 2.5vh 2vh;
-    margin: 2.5vh 2.5vh 2.5vh 0vh;
+    padding: 2.5vh;
+    margin:1.5vh .5vh;
     border-radius: 25px;
 }
 
@@ -108,8 +108,9 @@ select:hover {
     border: 3px solid #9c4ea4;
 }
 
-button {
+#find_startups {
     padding: 10px;
+    margin: 5px;
     border: none;
     border-radius: 10px;
     background: linear-gradient(to right, #7731f0, #ef1637);
@@ -119,8 +120,9 @@ button {
     transition: 0.5s;
 }
 
-button:hover {
+#find_startups:hover{
     padding: 15px;
+    margin:0px;
 }
 
 .status {
