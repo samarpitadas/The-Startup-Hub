@@ -48,15 +48,19 @@ function add_card(){
     let valuation = "6340M";
     let specification = "160M Series A in 2024";
     let link_to = "#";
-    let card = `<div class="heading"><span class="logo"></span><span class="name">${nameCompany}</span></div ><hr><h3>What they do:</h3><p>${TheyDo}</p><span>Fintechee</span><span>Down Payments</span><h3>About them:</h3><p>📍HQ: ${address}</p><span>${employee_range} employees</span><span>Founded: ${founded}</span><h3>Funding:</h3><span>${funding}</span><span>$${valuation} valuation</span><span>${specification}</span><br><div class="link"><a href="${link_to}">View Jobs</a></div>`
+    let card = `<div class="startup-card"><div class="heading"><span class="logo"></span><span class="name">${nameCompany}</span></div ><hr><h3>What they do:</h3><p>${TheyDo}</p><span>Fintechee</span><span>Down Payments</span><h3>About them:</h3><p>📍HQ: ${address}</p><span>${employee_range} employees</span><span>Founded: ${founded}</span><h3>Funding:</h3><span>${funding}</span><span>$${valuation} valuation</span><span>${specification}</span><br><div class="link"><a href="${link_to}">View Jobs</a></div></div>`
     
     // let cardlist = document.getElementsByClassName("startup-card");
     // let card_temp = cardlist[0].cloneNode(true);
     // card_temp.innerHTML = card;
-    let card_temp = document.getElementsByClassName("startup-card")[0].cloneNode();
-    card_temp.innerHTML = card;
+    // let card_temp = document.getElementsByClassName("startup-card")[0].cloneNode();
 
-    document.getElementById("statup_main_container").append(card_temp);
+    let temp=document.createElement("div");
+    temp.innerHTML=card;
+    new_card=temp.getElementsByClassName("startup-card")[0];
+    // card_temp.innerHTML = card;
+
+    document.getElementById("statup_main_container").append(new_card);
 }
 
 add_card();
