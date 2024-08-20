@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let obj={
-    name:"The StartUp Sphere",
+    name:"The StartUp",
     TheyDo:"List The Startups",
     properties:["fintech","web development"],
     address : "Howra, India",
