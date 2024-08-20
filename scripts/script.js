@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 items=[
     {
-        image:'../rupeek.png',
+        image:'https://i.tracxn.com/logo/company/rupeek_61173683-f13f-4707-833d-8b4fd0c69454.PNG?height=120&width=120',
         comapany_name:'Rupeek',
         what_they_do:'Online gold loans at your doorstep',
         comapny_tags:{
