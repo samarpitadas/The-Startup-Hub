@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const text = "The StartUp Sphere";
+    const text = "StartUp Sphere";
     const span = document.querySelector('.company-name');
     let index = 0;
 
