@@ -51,7 +51,7 @@ let obj={
     link_to : "#",
 }
 let obj2={
-    name:"Rahul",
+    name:"The StartUp",
     TheyDo:"Learn HTML",
     properties:["DSA","web development"],
     address : "Howra, India",
@@ -64,7 +64,7 @@ let obj2={
 }
 
 let listobj=[obj,obj,obj];
-listobj.push(obj2);
+listobj.push(obj);
 
 
 function add_card(objj=obj){
