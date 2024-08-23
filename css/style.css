@@ -157,16 +157,14 @@ select:hover {
     transform: translateY(0);
 }
 
+.logo{
+    border-radius: 20%;
+    width: 70px;
+}
+
 .heading {
     display: flex;
     align-items: center;
-}
-
-.logo {
-    background-image: url("../rupeek.png");
-    width: 7vh;
-    height: 7vh;
-    background-size: cover;
 }
 
 .startup-card .name {
@@ -192,17 +190,16 @@ select:hover {
     font-weight: bolder;
 }
 
-.link {
-    border: 2px solid;
+.link { 
     padding: 10px;
     text-align: center;
-    margin-top: 2vh;
-    border-radius: 20px;
 }
 
 .startup-card a {
     text-decoration: none;
     color: rgb(78, 75, 75);
     font-size: large;
-
+}
+.startup-card a:hover {
+    color: rgb(0, 0, 0);
 }

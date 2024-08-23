@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const text = "The StartUp Sphere";
+    const text = "StartUp Sphere";
     const span = document.querySelector('.company-name');
     let index = 0;
 
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     type();
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.startup-card');
 
@@ -38,88 +39,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-let obj={
-    name:"The StartUp",
-    TheyDo:"List The Startups",
-    properties:["fintech","web development"],
-    address : "Howra, India",
-    employee_range : "1001-5000",
-    founded : "2023",
-    funding : "Google",
-    valuation : "6340M",
-    specification : "160M Series A in 2024",
-    link_to : "#",
-}
-let obj2={
-    name:"The StartUp",
-    TheyDo:"Learn HTML",
-    properties:["DSA","web development"],
-    address : "Howra, India",
-    employee_range : "0-1",
-    founded : "2023",
-    funding : "IIEST,Shibpur",
-    valuation : "999M",
-    specification : "999M Series A in 2024",
-    link_to : "https://You.idot.com",
-}
-
-let listobj=[obj,obj,obj];
-listobj.push(obj);
-
-
-function add_card(objj=obj){
-    let property="";
-    for (const item of objj.properties) {
-        property+=`<span>${item}</span>`;
+items=[
+    {
+        image:'https://i.tracxn.com/logo/company/rupeek_61173683-f13f-4707-833d-8b4fd0c69454.PNG?height=120&width=120',
+        comapany_name:'Rupeek',
+        what_they_do:'Online gold loans at your doorstep',
+        comapny_tags:{
+            tag1:'Fintech',
+            tag2:'Payments',
+        },
+        headquarters:'Bangalore, India',
+        no_of_employees:'1001-5000',
+        founded:2005,
+        funding:{
+            investor: 'Sequioa',
+            valuation: '$634M',
+            funding_details: '$16M Series E in 2022',
+        },
+        link: 'https://www.google.com',
+    },
+    {
+        image:'https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds',
+        comapany_name:'CueMath',
+        what_they_do:'Making kids great at math',
+        comapny_tags:{
+            tag1:'EdTech',
+            tag2:'Legal',
+        },
+        headquarters:'Bangalore, India',
+        no_of_employees:'1001-5000',
+        founded:2011,
+        funding:{
+            investor: 'Sequioa',
+            valuation: '$407M',
+            funding_details: '$57M Series D in 2022',
+        },
+        link: 'https://www.cuemath.com',
     }
-    let card = `<div class="startup-card"><div class="heading"><span class="logo"></span><span class="name">${objj.name}</span></div ><hr><h3>What they do:</h3><p>${objj.TheyDo}</p>${property}<h3>About them:</h3><p>📍HQ: ${objj.address}</p><span>${objj.employee_range} employees</span><span>Founded: ${objj.founded}</span><h3>Funding:</h3><span>${objj.funding}</span><span>$${objj.valuation} valuation</span><span>${objj.specification}</span><br><div class="link"><a href="${objj.link_to}">View Jobs</a></div></div>`
-    
-    let temp=document.createElement("div");
-    temp.innerHTML=card;
-    new_card=temp.getElementsByClassName("startup-card")[0];
-    document.getElementById("statup_main_container").append(new_card);
+];
+
+displayItemHomePage();
+
+function displayItemHomePage(){
+    let itemsContainerElement = document.querySelector('.startup-container');
+    if(!itemsContainerElement){
+        return;
+    }
+    let innerHtml='';
+items.forEach(item =>{
+    innerHtml += `
+    <div class="startup-card">
+            <div class="heading">
+                <img class="logo" src=${item.image}>
+                <span class="name">${item.comapany_name}</span>
+            </div>
+            <hr>
+            <h3>What they do:</h3>
+            <p>${item.what_they_do}</p>
+            <span>${item.comapny_tags.tag1}</span>
+            <span>${item.comapny_tags.tag2}</span>
+            <h3>About them:</h3>
+            <p>📍HQ: ${item.headquarters}</p>
+            <span>${item.no_of_employees} employees</span>
+            <span>Founded: ${item.founded}</span>
+            <h3>Funding:</h3>
+            <span>${item.funding.investor}</span>
+            <span>${item.funding.valuation}</span>
+            <span>${item.funding.funding_details}</span>
+            <br>
+            <br>
+            <a href=${item.link} class="link">VIEW JOBS</a>
+        </div>`
+})
+
+itemsContainerElement.innerHTML=innerHtml;
 }
-// function add_card(){
-//     let nameCompany = "The StartUp Sphere";
-//     let TheyDo = "List The Startups";
-//     let properties=["fintech","web development"];
-//     let address = "Howra, India";
-//     let employee_range = "1001-5000";
-//     let founded = "2023";
-//     let funding = "Google";
-//     let valuation = "6340M";
-//     let specification = "160M Series A in 2024";
-//     let link_to = "#";
-//     let property="";
-//     for (const item of properties) {
-//         property+=`<span>${item}</span>`;
-//     }
-//     let card = `<div class="startup-card"><div class="heading"><span class="logo"></span><span class="name">${nameCompany}</span></div ><hr><h3>What they do:</h3><p>${TheyDo}</p>${property}<h3>About them:</h3><p>📍HQ: ${address}</p><span>${employee_range} employees</span><span>Founded: ${founded}</span><h3>Funding:</h3><span>${funding}</span><span>$${valuation} valuation</span><span>${specification}</span><br><div class="link"><a href="${link_to}">View Jobs</a></div></div>`
-    
-//     let temp=document.createElement("div");
-//     temp.innerHTML=card;
-//     new_card=temp.getElementsByClassName("startup-card")[0];
-//     document.getElementById("statup_main_container").append(new_card);
-// }
-
-
-add_card();
-add_card(obj);
-
-for (const element of listobj) {
-    add_card(element);
-}
-
-
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-// add_card();
-
-
