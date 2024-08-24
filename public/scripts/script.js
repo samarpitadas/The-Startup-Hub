@@ -90,7 +90,7 @@ function displayItemHomePage() {
     let innerHtml = '';
     items.forEach(item => {
         innerHtml += `
-    <div class="startup-card">
+    <div class="startup-card visible">
             <div class="heading">
                 <img class="logo" src=${item.image}>
                 <span class="name">${item.comapany_name}</span>
@@ -118,18 +118,44 @@ function displayItemHomePage() {
 }
 
 async function postt() {
-    let a= await fetch("/loadcard", {method:"POST"})//can use this
-    // console.log("My first post");
-    let b=await a.json();
-    console.log(b)
-    for (const card of b) {
-        for (const key in card) {
-            if (Object.prototype.hasOwnProperty.call(card, key)) {
-                const element = card[key];
-                console.log(key,"->",element)
-            }
-        }
+    let a = await fetch("/loadcard", { method: "POST" })
+    let b = await a.json();
+    let itemsContainerElement = document.querySelector('.startup-container');
+    let innerHtml = itemsContainerElement.innerHTML;
+    if (!itemsContainerElement) {
+        return;
     }
+    for (const item of b) {
+        // for (const key in item) {
+        //     if (Object.prototype.hasOwnProperty.call(item, key)) {
+        //         const element =item[key];
+        //         console.log(key, "->", element)
+        //     }
+        // }
+        innerHtml += `
+        <div class="startup-card visible">
+                <div class="heading">
+                    <img class="logo" src='https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds'>
+                    <span class="name">${item.name}</span>
+                </div>
+                <hr>
+                <h3>What they do:</h3>
+                <p>${item.motive}</p>
+                <span>${item.industry}</span>
+                <h3>About them:</h3>
+                <p>📍HQ: ${item.hq}</p>
+                <span>${item.size} employees</span>
+                <span>Founded: ${item.founded}</span>
+                <h3>Funding:</h3>
+                <span>${item.funding}</span>
+                <br>
+                <br>
+                <a href=${item.link} class="link">VIEW JOBS</a>
+            </div>`
+        
+    }
+    console.log(innerHtml)
+    itemsContainerElement.innerHTML = innerHtml;
 }
 postt()
 
