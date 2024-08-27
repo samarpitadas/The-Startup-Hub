@@ -3,6 +3,12 @@ const app = express()
 const port = 3000
 const fs = require('fs');
 
+const mongoose=require("mongoose")
+const conn =mongoose.connect("mongodb+srv://raj902121raj:rahulpandit123@database.ox2us.mongodb.net/todo")
+
+
+
+
 
 
 app.use(express.static('public'))
