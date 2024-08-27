@@ -78,46 +78,44 @@ items = [
     }
 ];
 
-displayItemHomePage();
+// displayItemHomePage();
+// function displayItemHomePage() {
+//     let itemsContainerElement = document.querySelector('.startup-container');
+//     if (!itemsContainerElement) {
+//         return;
+//     }
+//     let innerHtml = '';
+//     items.forEach(item => {
+//         innerHtml += `
+//     <div class="startup-card visible">
+//             <div class="heading">
+//                 <img class="logo" src=${item.image}>
+//                 <span class="name">${item.comapany_name}</span>
+//             </div>
+//             <hr>
+//             <h3>What they do:</h3>
+//             <p>${item.what_they_do}</p>
+//             <span>${item.comapny_tags.tag1}</span>
+//             <span>${item.comapny_tags.tag2}</span>
+//             <h3>About them:</h3>
+//             <p>📍HQ: ${item.headquarters}</p>
+//             <span>${item.no_of_employees} employees</span>
+//             <span>Founded: ${item.founded}</span>
+//             <h3>Funding:</h3>
+//             <span>${item.funding.investor}</span>
+//             <span>${item.funding.valuation}</span>
+//             <span>${item.funding.funding_details}</span>
+//             <br>
+//             <br>
+//             <a href=${item.link} class="link">VIEW JOBS</a>
+//         </div>`
+//     })
 
+//     itemsContainerElement.innerHTML = innerHtml;
+// }
 
-
-function displayItemHomePage() {
-    let itemsContainerElement = document.querySelector('.startup-container');
-    if (!itemsContainerElement) {
-        return;
-    }
-    let innerHtml = '';
-    items.forEach(item => {
-        innerHtml += `
-    <div class="startup-card visible">
-            <div class="heading">
-                <img class="logo" src=${item.image}>
-                <span class="name">${item.comapany_name}</span>
-            </div>
-            <hr>
-            <h3>What they do:</h3>
-            <p>${item.what_they_do}</p>
-            <span>${item.comapny_tags.tag1}</span>
-            <span>${item.comapny_tags.tag2}</span>
-            <h3>About them:</h3>
-            <p>📍HQ: ${item.headquarters}</p>
-            <span>${item.no_of_employees} employees</span>
-            <span>Founded: ${item.founded}</span>
-            <h3>Funding:</h3>
-            <span>${item.funding.investor}</span>
-            <span>${item.funding.valuation}</span>
-            <span>${item.funding.funding_details}</span>
-            <br>
-            <br>
-            <a href=${item.link} class="link">VIEW JOBS</a>
-        </div>`
-    })
-
-    itemsContainerElement.innerHTML = innerHtml;
-}
-
-async function postt() {
+loadd()
+async function loadd() {
     let a = await fetch("/loadcard", { method: "POST" })
     let b = await a.json();
     let itemsContainerElement = document.querySelector('.startup-container');
@@ -126,12 +124,6 @@ async function postt() {
         return;
     }
     for (const item of b) {
-        // for (const key in item) {
-        //     if (Object.prototype.hasOwnProperty.call(item, key)) {
-        //         const element =item[key];
-        //         console.log(key, "->", element)
-        //     }
-        // }
         innerHtml += `
         <div class="startup-card visible">
                 <div class="heading">
@@ -157,5 +149,4 @@ async function postt() {
     console.log(innerHtml)
     itemsContainerElement.innerHTML = innerHtml;
 }
-postt()
 
