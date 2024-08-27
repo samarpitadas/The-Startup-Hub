@@ -39,19 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-items=[
+items = [
     {
-        image:'https://i.tracxn.com/logo/company/rupeek_61173683-f13f-4707-833d-8b4fd0c69454.PNG?height=120&width=120',
-        comapany_name:'Rupeek',
-        what_they_do:'Online gold loans at your doorstep',
-        comapny_tags:{
-            tag1:'Fintech',
-            tag2:'Payments',
+        image: 'https://i.tracxn.com/logo/company/rupeek_61173683-f13f-4707-833d-8b4fd0c69454.PNG?height=120&width=120',
+        comapany_name: 'Rupeek',
+        what_they_do: 'Online gold loans at your doorstep',
+        comapny_tags: {
+            tag1: 'Fintech',
+            tag2: 'Payments',
         },
-        headquarters:'Bangalore, India',
-        no_of_employees:'1001-5000',
-        founded:2005,
-        funding:{
+        headquarters: 'Bangalore, India',
+        no_of_employees: '1001-5000',
+        founded: 2005,
+        funding: {
             investor: 'Sequioa',
             valuation: '$634M',
             funding_details: '$16M Series E in 2022',
@@ -59,17 +59,17 @@ items=[
         link: 'https://www.google.com',
     },
     {
-        image:'https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds',
-        comapany_name:'CueMath',
-        what_they_do:'Making kids great at math',
-        comapny_tags:{
-            tag1:'EdTech',
-            tag2:'Legal',
+        image: 'https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds',
+        comapany_name: 'CueMath',
+        what_they_do: 'Making kids great at math',
+        comapny_tags: {
+            tag1: 'EdTech',
+            tag2: 'Legal',
         },
-        headquarters:'Bangalore, India',
-        no_of_employees:'1001-5000',
-        founded:2011,
-        funding:{
+        headquarters: 'Bangalore, India',
+        no_of_employees: '1001-5000',
+        founded: 2011,
+        funding: {
             investor: 'Sequioa',
             valuation: '$407M',
             funding_details: '$57M Series D in 2022',
@@ -80,14 +80,14 @@ items=[
 
 displayItemHomePage();
 
-function displayItemHomePage(){
+function displayItemHomePage() {
     let itemsContainerElement = document.querySelector('.startup-container');
-    if(!itemsContainerElement){
+    if (!itemsContainerElement) {
         return;
     }
-    let innerHtml='';
-items.forEach(item =>{
-    innerHtml += `
+    let innerHtml = '';
+    items.forEach(item => {
+        innerHtml += `
     <div class="startup-card">
             <div class="heading">
                 <img class="logo" src=${item.image}>
@@ -110,7 +110,7 @@ items.forEach(item =>{
             <br>
             <a href=${item.link} class="link">VIEW JOBS</a>
         </div>`
-})
+    })
 
-itemsContainerElement.innerHTML=innerHtml;
+    itemsContainerElement.innerHTML = innerHtml;
 }
