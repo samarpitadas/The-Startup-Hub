@@ -1,7 +1,8 @@
 import express from "express";
 const app = express()
 const port = 3000
-import fs from 'fs'
+// const port = process.env.PORT || 4000;
+const __dirname = import.meta.dirname;
 import mongoose from "mongoose";
 const conn =await mongoose.connect("mongodb+srv://raj902121raj:rahulpandit123@database.ox2us.mongodb.net/")
 
@@ -15,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root:"./" })
+  res.sendFile('index.html', { root:__dirname })
 })
 app.get('/pages/:page', (req, res) => {
   res.sendFile(__dirname + `/pages/${req.params.page}`)
@@ -45,7 +46,7 @@ app.post('/submit', async (req, res) => {
   //   console.log("New data added");
   // });
 
-  res.sendFile('pages/redirect.html', { root: "./" })
+  res.sendFile('pages/redirect.html', { root: __dirname })
 })
 
 app.post('/loadcard', async (req, res) => {
