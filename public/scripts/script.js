@@ -132,7 +132,13 @@ async function find(e) {
         body: JSON.stringify(data),
     })
     let b = await a.json();
-    console.log(b);
+    // console.log(b);
+
+    let no=document.getElementById("found_card");
+    let html="Startups your search matched : ";
+    html+=b.length;
+    no.innerHTML=html;
+
     loadd(b);
 }
 myform.addEventListener("submit", find);

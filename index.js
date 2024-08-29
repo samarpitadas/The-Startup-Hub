@@ -39,14 +39,14 @@ app.post('/loadcard', async (req, res) => {
   res.send(temp)
 })
 app.post('/find', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   let obj = req.body
   let obj2 = {};
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       const element = obj[key];
       if (element != "") {
-        console.log(key, element);
+        // console.log(key, element);
         obj2[key] = element;
       }
     }
