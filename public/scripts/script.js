@@ -114,36 +114,41 @@ document.addEventListener('DOMContentLoaded', () => {
 //     itemsContainerElement.innerHTML = innerHtml;
 // }
 
-// let myform = document.getElementById("myform");
-// async function find(e) {
-//     e.preventDefault();
-//     let formData = new FormData(myform);
-//     const data = {};
-// 	for (let keyValue of formData.entries()) {
-// 		data[keyValue[0]] = keyValue[1];
-// 	}
-//     console.log(data);
-
-//     let a = await fetch("/find", {
-//         method: "POST",
-//         body: JSON.stringify(data),
-//         // data:data
-//     })
-//     // let b = await a.json();
-//     console.log(await a.json());
-// }
-// myform.addEventListener("submit",find);
-
-loadd()
-async function loadd() {
-    let a = await fetch("/loadcard", { method: "POST" })
+let myform = document.getElementById("myform");
+async function find(e) {
+    e.preventDefault();
+    //recovering deta of form
+    let formData = new FormData(myform);
+    const data = {};
+    for (let keyValue of formData.entries()) {
+        data[keyValue[0]] = keyValue[1];
+    }
+    //fetch from server
+    let a = await fetch("/find", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
     let b = await a.json();
+    console.log(b);
+    loadd(b);
+}
+myform.addEventListener("submit", find);
+
+// loadd()
+async function loadd(card_list=[]) {
+    // let a = await fetch("/loadcard", { method: "POST" })
+    // let b = await a.json();
     let itemsContainerElement = document.querySelector('.startup-container');
-    let innerHtml = itemsContainerElement.innerHTML;
+    // let innerHtml = itemsContainerElement.innerHTML;
+    let innerHtml="";
     if (!itemsContainerElement) {
         return;
     }
-    for (const item of b) {
+    // for (const item of b) {
+    for (const item of card_list) {
         innerHtml += `
         <div class="startup-card visible">
                 <div class="heading">
@@ -166,7 +171,7 @@ async function loadd() {
             </div>`
 
     }
-    console.log(innerHtml)
+    // console.log(innerHtml)
     itemsContainerElement.innerHTML = innerHtml;
 }
 
