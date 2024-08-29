@@ -37,9 +37,9 @@
     <h2>Track newest India-based startups funded by top investors. Powerful filters.</h2>
     <div class="filters">
         <div class="filer-section">
-            <form>
+            <form id="myform">
                 <label for="industry">Industry:</label>
-                <select name="industry" id="industry">
+                <select name="industry" id="industry" required>
                     <option value="" diasabled selected>Choose an industry</option>
                     <option value="healthcare">Healthcare</option>
                     <option value="analytics">Analytics</option>
@@ -119,8 +119,8 @@
                     <option value="investor">Others</option>
                 </select>
                 <br>
+                <button id="find_startups">FIND STARTUPS</button>
             </form>
-            <button id="find_startups" onclick="add()">FIND STARTUPS</button><!--temporary add()-->
         </div>
     </div>
     <div class="status">

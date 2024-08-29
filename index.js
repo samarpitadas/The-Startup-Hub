@@ -29,35 +29,20 @@ app.post('/submit', async (req, res) => {
 
   const newstartup=new Startup(recieved_data);
   newstartup.save()
-  // let temp=await Startup.find({});
-  // console.log(temp)
-
-
-  // var data = fs.readFileSync("data/companies.json");
-  // var data_json = JSON.parse(data);
-  // // console.log(data_json);
-  // data_json.push(recieved_data);
-
-
-  // var data_string = JSON.stringify(data_json);
-  // fs.writeFile("data/companies.json", data_string, (err) => {
-  //   // Error checking
-  //   if (err) throw err;
-  //   console.log("New data added");
-  // });
 
   res.sendFile('pages/redirect.html', { root: __dirname })
 })
 
 app.post('/loadcard', async (req, res) => {
-  // var data = fs.readFileSync("data/companies.json");
-  // var data_json = JSON.parse(data);
-  // var data_string=JSON.stringify(data_json);
   let temp=await Startup.find({});
-  console.log(temp)
+  // console.log(temp)
   res.send(temp)
 })
-
+// app.post('/find', async (req, res) => {
+//   let recieved_data2 =await req.body
+//   console.log(recieved_data2);
+//   res.send({name:"Rahul"})
+// })
 app.listen(port, () =>
   console.log(`Example app listening on port ${port}`)
 )

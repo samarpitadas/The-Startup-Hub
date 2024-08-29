@@ -39,44 +39,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-items = [
-    {
-        image: 'https://i.tracxn.com/logo/company/rupeek_61173683-f13f-4707-833d-8b4fd0c69454.PNG?height=120&width=120',
-        comapany_name: 'Rupeek',
-        what_they_do: 'Online gold loans at your doorstep',
-        comapny_tags: {
-            tag1: 'Fintech',
-            tag2: 'Payments',
-        },
-        headquarters: 'Bangalore, India',
-        no_of_employees: '1001-5000',
-        founded: 2005,
-        funding: {
-            investor: 'Sequioa',
-            valuation: '$634M',
-            funding_details: '$16M Series E in 2022',
-        },
-        link: 'https://www.google.com',
-    },
-    {
-        image: 'https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds',
-        comapany_name: 'CueMath',
-        what_they_do: 'Making kids great at math',
-        comapny_tags: {
-            tag1: 'EdTech',
-            tag2: 'Legal',
-        },
-        headquarters: 'Bangalore, India',
-        no_of_employees: '1001-5000',
-        founded: 2011,
-        funding: {
-            investor: 'Sequioa',
-            valuation: '$407M',
-            funding_details: '$57M Series D in 2022',
-        },
-        link: 'https://www.cuemath.com',
-    }
-];
+// items = [
+//     {
+//         image: 'https://i.tracxn.com/logo/company/rupeek_61173683-f13f-4707-833d-8b4fd0c69454.PNG?height=120&width=120',
+//         comapany_name: 'Rupeek',
+//         what_they_do: 'Online gold loans at your doorstep',
+//         comapny_tags: {
+//             tag1: 'Fintech',
+//             tag2: 'Payments',
+//         },
+//         headquarters: 'Bangalore, India',
+//         no_of_employees: '1001-5000',
+//         founded: 2005,
+//         funding: {
+//             investor: 'Sequioa',
+//             valuation: '$634M',
+//             funding_details: '$16M Series E in 2022',
+//         },
+//         link: 'https://www.google.com',
+//     },
+//     {
+//         image: 'https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds',
+//         comapany_name: 'CueMath',
+//         what_they_do: 'Making kids great at math',
+//         comapny_tags: {
+//             tag1: 'EdTech',
+//             tag2: 'Legal',
+//         },
+//         headquarters: 'Bangalore, India',
+//         no_of_employees: '1001-5000',
+//         founded: 2011,
+//         funding: {
+//             investor: 'Sequioa',
+//             valuation: '$407M',
+//             funding_details: '$57M Series D in 2022',
+//         },
+//         link: 'https://www.cuemath.com',
+//     }
+// ];
 
 // displayItemHomePage();
 // function displayItemHomePage() {
@@ -114,6 +114,26 @@ items = [
 //     itemsContainerElement.innerHTML = innerHtml;
 // }
 
+// let myform = document.getElementById("myform");
+// async function find(e) {
+//     e.preventDefault();
+//     let formData = new FormData(myform);
+//     const data = {};
+// 	for (let keyValue of formData.entries()) {
+// 		data[keyValue[0]] = keyValue[1];
+// 	}
+//     console.log(data);
+
+//     let a = await fetch("/find", {
+//         method: "POST",
+//         body: JSON.stringify(data),
+//         // data:data
+//     })
+//     // let b = await a.json();
+//     console.log(await a.json());
+// }
+// myform.addEventListener("submit",find);
+
 loadd()
 async function loadd() {
     let a = await fetch("/loadcard", { method: "POST" })
@@ -144,7 +164,7 @@ async function loadd() {
                 <br>
                 <a href=${item.link} class="link">VIEW JOBS</a>
             </div>`
-        
+
     }
     console.log(innerHtml)
     itemsContainerElement.innerHTML = innerHtml;
