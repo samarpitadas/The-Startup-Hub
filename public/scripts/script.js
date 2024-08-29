@@ -138,6 +138,11 @@ loadd()
 async function loadd() {
     let a = await fetch("/loadcard", { method: "POST" })
     let b = await a.json();
+    let len=b.length;
+    let no= document.querySelector('#search_no');
+    let nohtml=no.innerHTML;
+    nohtml+=len;
+    no.innerHTML=nohtml;
     let itemsContainerElement = document.querySelector('.startup-container');
     let innerHtml = itemsContainerElement.innerHTML;
     if (!itemsContainerElement) {
