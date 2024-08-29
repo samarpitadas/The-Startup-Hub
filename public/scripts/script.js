@@ -78,39 +78,75 @@ items = [
     }
 ];
 
-displayItemHomePage();
+// displayItemHomePage();
+// function displayItemHomePage() {
+//     let itemsContainerElement = document.querySelector('.startup-container');
+//     if (!itemsContainerElement) {
+//         return;
+//     }
+//     let innerHtml = '';
+//     items.forEach(item => {
+//         innerHtml += `
+//     <div class="startup-card visible">
+//             <div class="heading">
+//                 <img class="logo" src=${item.image}>
+//                 <span class="name">${item.comapany_name}</span>
+//             </div>
+//             <hr>
+//             <h3>What they do:</h3>
+//             <p>${item.what_they_do}</p>
+//             <span>${item.comapny_tags.tag1}</span>
+//             <span>${item.comapny_tags.tag2}</span>
+//             <h3>About them:</h3>
+//             <p>📍HQ: ${item.headquarters}</p>
+//             <span>${item.no_of_employees} employees</span>
+//             <span>Founded: ${item.founded}</span>
+//             <h3>Funding:</h3>
+//             <span>${item.funding.investor}</span>
+//             <span>${item.funding.valuation}</span>
+//             <span>${item.funding.funding_details}</span>
+//             <br>
+//             <br>
+//             <a href=${item.link} class="link">VIEW JOBS</a>
+//         </div>`
+//     })
 
-function displayItemHomePage() {
+//     itemsContainerElement.innerHTML = innerHtml;
+// }
+
+loadd()
+async function loadd() {
+    let a = await fetch("/loadcard", { method: "POST" })
+    let b = await a.json();
     let itemsContainerElement = document.querySelector('.startup-container');
+    let innerHtml = itemsContainerElement.innerHTML;
     if (!itemsContainerElement) {
         return;
     }
-    let innerHtml = '';
-    items.forEach(item => {
+    for (const item of b) {
         innerHtml += `
-    <div class="startup-card">
-            <div class="heading">
-                <img class="logo" src=${item.image}>
-                <span class="name">${item.comapany_name}</span>
-            </div>
-            <hr>
-            <h3>What they do:</h3>
-            <p>${item.what_they_do}</p>
-            <span>${item.comapny_tags.tag1}</span>
-            <span>${item.comapny_tags.tag2}</span>
-            <h3>About them:</h3>
-            <p>📍HQ: ${item.headquarters}</p>
-            <span>${item.no_of_employees} employees</span>
-            <span>Founded: ${item.founded}</span>
-            <h3>Funding:</h3>
-            <span>${item.funding.investor}</span>
-            <span>${item.funding.valuation}</span>
-            <span>${item.funding.funding_details}</span>
-            <br>
-            <br>
-            <a href=${item.link} class="link">VIEW JOBS</a>
-        </div>`
-    })
-
+        <div class="startup-card visible">
+                <div class="heading">
+                    <img class="logo" src='https://play-lh.googleusercontent.com/wspoVFDFfDzh1LgfEp3AEH_x_FGkH-rogOT4-rw_1QBwfvknuljV7T58xTL08hLn8Ds'>
+                    <span class="name">${item.name}</span>
+                </div>
+                <hr>
+                <h3>What they do:</h3>
+                <p>${item.motive}</p>
+                <span>${item.industry}</span>
+                <h3>About them:</h3>
+                <p>📍HQ: ${item.hq}</p>
+                <span>${item.size} employees</span>
+                <span>Founded: ${item.founded}</span>
+                <h3>Funding:</h3>
+                <span>${item.funding}</span>
+                <br>
+                <br>
+                <a href=${item.link} class="link">VIEW JOBS</a>
+            </div>`
+        
+    }
+    console.log(innerHtml)
     itemsContainerElement.innerHTML = innerHtml;
 }
+
