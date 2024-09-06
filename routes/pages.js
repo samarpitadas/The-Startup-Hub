@@ -4,7 +4,7 @@ const __dirname = import.meta.dirname;
 import { Startup } from "../models/startup_data.js";
 import path from 'path'
 import { connectdbs } from "../connection.js";
-import { addstartuptodbs, adduser } from "../controllers/functions.js";
+import { addstartuptodbs, adduser ,loginuser } from "../controllers/functions.js";
 
 connectdbs();
 
@@ -15,6 +15,7 @@ route.get('/:page', (req, res) => {
 })
 
 route.post('/signup', adduser);
+route.post('/login', loginuser);
 
 
 export default route;

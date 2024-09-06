@@ -40,22 +40,59 @@ async function findfromdbs(req, res) {
 async function adduser(req, res) {
     try {
         const userdata = req.body;
+        // console.log(userdata);
         const existingUser = await user.findOne({
             $or: [
                 { email: userdata.email },
-                { username:userdata.username},
+                { username: userdata.username },
             ]
         }); // or any other unique field
+
         if (existingUser) {
-            res.send("User already exist");
+            let comment = "";
+            if (existingUser.email === userdata.email) {
+                comment = "email already exists try login"
+            } else {
+                comment = "username already exists try another"
+            }
+            res.json({ status: comment, statuscode: 0 });
         } else {
-            const new_user = new user(userdata);
+            console.log(userdata)
+            const new_user = new user({
+                email: userdata.email,
+                password: userdata.password,
+                username: userdata.username
+            });
             await new_user.save();
-            res.redirect('/');
+            res.json({ status: 'user added:)', statuscode: 1 });
         }
     } catch (error) {
-        res.redirect('/');
+        res.status(404).json({ status: `some error has occurred `, statuscode: 0 });
+    }
+}
+async function loginuser(req, res) {
+    try {
+        const userdata = req.body;
+        console.log(userdata);
+        const existingUser = await user.findOne({ username: userdata.username }); // or any other unique field
+
+        if (existingUser) {
+            let comment = "";
+            if (existingUser.password === userdata.password) {
+                comment = "Log in successful"
+                res.json({ status: comment, statuscode: 1 });
+            } else {
+                comment = "wronge password??"
+                res.json({ status: comment, statuscode: 0 });
+            }
+        } else {
+            res.json({ status: 'username not found try login', statuscode: 0 });
+        }
+    } catch (error) {
+        res.status(404).json({ status: `some error has occurred `, statuscode: 0 });
     }
 }
 
-export { findfromdbs, addstartuptodbs, adduser };
+
+
+export { findfromdbs, addstartuptodbs, adduser, loginuser };
