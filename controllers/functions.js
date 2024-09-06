@@ -80,6 +80,8 @@ async function loginuser(req, res) {
             let comment = "";
             if (existingUser.password === userdata.password) {
                 comment = "Log in successful"
+                //set cookie
+                res.cookie('uid',existingUser.id);
                 res.json({ status: comment, statuscode: 1 });
             } else {
                 comment = "wronge password??"

@@ -15,6 +15,7 @@ route.get('/:page', (req, res) => {
 })
 
 route.post('/signup', adduser);
+
 route.post('/login', loginuser);
 
 

@@ -14,30 +14,49 @@ document.addEventListener('DOMContentLoaded', function () {
     type();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.startup-card');
+async function auth() {
+    let a = await fetch("/auth", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ from: "web" }),
+    })
+    let b = await a.json();
+    const navbar = document.getElementById("navbar");
 
-    const observerOptions = {
-        root: null, // Use the viewport as the root
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the card is visible
-    };
+    if (b.statuscode === 1) {
+        navbar.innerHTML = `<button class='user' id='user' onclick='logout("uid")'>${b.username}</button>`
+    }
+}
+auth();
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    };
+function logout(name='') {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.href = "/";
+}
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    cards.forEach(card => {
-        observer.observe(card);
-    });
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     const cards = document.querySelectorAll('.startup-card');
+//     const observerOptions = {
+//         root: null, // Use the viewport as the root
+//         rootMargin: '0px',
+//         threshold: 0.1 // Trigger when 10% of the card is visible
+//     };
+//     const observerCallback = (entries, observer) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add('visible');
+//                 observer.unobserve(entry.target);
+//             }
+//         });
+//     };
+//     const observer = new IntersectionObserver(observerCallback, observerOptions);
+//     cards.forEach(card => {
+//         observer.observe(card);
+//     });
+// });
 
 // items = [
 //     {
@@ -134,26 +153,21 @@ async function find(e) {
     let b = await a.json();
     // console.log(b);
 
-    let no=document.getElementById("found_card");
-    let html="Startups your search matched : ";
-    html+=b.length;
-    no.innerHTML=html;
+    let no = document.getElementById("found_card");
+    let html = "Startups your search matched : ";
+    html += b.length;
+    no.innerHTML = html;
 
     loadd(b);
 }
 myform.addEventListener("submit", find);
 
-// loadd()
-async function loadd(card_list=[]) {
-    // let a = await fetch("/loadcard", { method: "POST" })
-    // let b = await a.json();
+async function loadd(card_list = []) {
     let itemsContainerElement = document.querySelector('.startup-container');
-    // let innerHtml = itemsContainerElement.innerHTML;
-    let innerHtml="";
+    let innerHtml = "";
     if (!itemsContainerElement) {
         return;
     }
-    // for (const item of b) {
     for (const item of card_list) {
         innerHtml += `
         <div class="startup-card visible">
@@ -177,7 +191,6 @@ async function loadd(card_list=[]) {
             </div>`
 
     }
-    // console.log(innerHtml)
     itemsContainerElement.innerHTML = innerHtml;
 }
 
