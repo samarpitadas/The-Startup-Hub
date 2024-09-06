@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js",
     "run": "nodemon ./index.js"
   },
   "keywords": [],
@@ -12,9 +12,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "date-and-time": "^3.5.0",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
-    "mongoose": "^8.5.4"
+    "mongoose": "^8.5.4",
+    "nodemon": "^3.1.4"
   }
 }
