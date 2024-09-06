@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
 // const port = process.env.PORT || 4000;
 
 import defaultroutes from './routes/default_route.js'
@@ -8,10 +8,12 @@ import api from './routes/api.js'
 import { logreq } from "./middlewares/log.js";
 
 const app = express()
-const port = 8000
+const port = 3000
 
 //middleware
 app.use(express.static('public'))
+app.use(json())
+app.use(urlencoded({extended:false}))
 app.use(logreq)
 
 //routes

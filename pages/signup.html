@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,22 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
     <link rel="manifest" href="../favicon/site.webmanifest">
 </head>
+
 <body>
     <div class="container">
         <div class="login-container">
             <h1>Sign up for top startups</h1>
-            <form action="">
+            <form action="signup" method="post">
                 <label for="email" class="label">Enter E-Mail:</label>
-                <input type="email" class="email" placeholder="E-Mail" required>
+                <input type="email" class="email" name="email" placeholder="E-Mail" required>
                 <label for="password" class="label">Enter Password:</label>
-                <input type="password" class="email" placeholder="Password" required>
+                <input type="password" class="password" name="password" placeholder="Password" required>
                 <label for="username" class="label">Enter Username:</label>
-                <input type="text" placeholder="Username" class="email" required>
-                <button class="btn" type="submit" formaction="http://192.168.34.83:3000/index.html">Submit</button>
+                <input type="text" placeholder="Username" class="username" name="username" required>
+                <button class="btn">Submit</button>
             </form>
         </div>
     </div>
 </body>
+
 </html>
