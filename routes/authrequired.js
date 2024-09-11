@@ -9,7 +9,7 @@ route.all('/', async (req, res) => {
     const uid = req.cookies.uid;
     console.log(uid)
     if (!uid) {
-        res.json({ status: "Not looged in", statuscode: 0, username: "" })
+        res.json({ status: "Not logged in", statuscode: 0, username: "" })
     } else {
         const registereduser =await user.findById(uid);
         res.json({ status: "looged in", statuscode: 1, username: registereduser.username })
