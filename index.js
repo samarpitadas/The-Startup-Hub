@@ -143,7 +143,7 @@ app.post("/companysignup", async function (req, res) {
 
 app.post('/userlogin', async function (req, res) {
     let { email, password } = req.body;
-    console.log({ email, password });
+    // console.log({ email, password });
 
     let user = await userModel.findOne({ email });
     if (!user) return res.json({ status: 0, error: "email" })
@@ -160,7 +160,7 @@ app.post('/userlogin', async function (req, res) {
 
 app.post('/companylogin', async function (req, res) {
     let { email, password } = req.body;
-    console.log({ email, password });
+    // console.log({ email, password });
 
     let user = await companyModel.findOne({ email });
     if (!user) return res.json({ status: 0, error: "email" })
@@ -200,11 +200,11 @@ app.post('/addstartup', isloggedin, async function (req, res) {
         imagelink,
         postedby: company._id
     })
-    console.log(newstartup);
+    // console.log(newstartup);
 
     //updating data 
     let impdata = await data.findOne();
-    console.log(impdata);
+    // console.log(impdata);
 
     if (!impdata) {
         impdata = await data.create({ location: location.toLowerCase() });
@@ -214,7 +214,7 @@ app.post('/addstartup', isloggedin, async function (req, res) {
             impdata.location.push(location.toLowerCase());
         }
     }
-    console.log(impdata);
+    // console.log(impdata);
     await impdata.save();
 
     company.posts.push(newstartup._id);
@@ -225,7 +225,7 @@ app.post('/addstartup', isloggedin, async function (req, res) {
 app.post('/findstartup', isloggedin, async function (req, res) {
     const user = await userModel.findOne({ email: req.user.email });
     let obj = req.body
-    console.log(obj);
+    // console.log(obj);
 
     for (const key in obj) {
         if (obj[key] === "") {
